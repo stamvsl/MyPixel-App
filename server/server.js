@@ -2,6 +2,7 @@ import express from "express"
 const app = express();
 import connection from "./connection.js";
 import userRouter from "./routes/user.js"
+import postRouter from "./routes/post.js"
 import bodyParser from 'body-parser'
 // app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,4 +17,5 @@ app.get('/', (req, res) => {
 })
 
 app.use("/users", userRouter)
+app.use("/posts", postRouter)
 
