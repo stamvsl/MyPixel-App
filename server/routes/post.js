@@ -2,6 +2,11 @@ import express from "express"
 const router = express.Router();
 import Posts from "../models/Posts.js/" 
 
+
+
+
+
+
 router.post("/new", async (req,res)=>{
     const post = new Posts({
         text: req.body.text,
