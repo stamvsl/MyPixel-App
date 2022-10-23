@@ -77,8 +77,9 @@ var upload = multer({ storage: storage,
 
 router.post('/new', upload.single('image'),async (req, res, error) => {
   const post = new Posts({
-            text: req.body.text,
-            image: req.file.filename
+           
+            image: req.file.filename,
+            text: req.body.text
         })
         console.log(post);
         //console.log(image);

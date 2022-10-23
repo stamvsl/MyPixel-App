@@ -1,13 +1,14 @@
 import mongoose from 'mongoose';
 
 const Schema = new mongoose.Schema({
+    image:{
+        type: String
+    },
     text: {
         type: String,
         
-    },
-    image:{
-        type: String
     }
+    
 });
 
 Schema.methods.toJSON = function () {
