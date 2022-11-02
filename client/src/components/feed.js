@@ -1,45 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom"
+import Form from "./form"
 
 const Feed = () => {
-    const [image, setImage] = useState("");
-
-    const onInputChange = (e) =>{
-        setImage(e.target.files[0])
-    }
-
-
-    const onFormSubmit = (e) =>{
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append("image", image);
-        const config = {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
-        }
-        axios.post("http://localhost:3001/posts/new", formData, config).then((res)=>{
-            console.log("Success");
-        }).catch((err)=>{
-            console.log("err", err)
+    
+const [data, setData] = useState(null)
+useEffect(() => {
+    axios.get("http://localhost:3001/allPosts")
+        .then((res)=> res.data)
+        .then((posts)=>{
+            console.log("posts: ", posts)
+            setData(posts)
         })
-    }
+        .catch((e)=> console.log("error",e))
+  },[]);
 
-
-    
-    
-        return(
+    return(
+        <div>
+            <h1>Feed</h1>
+            <Link to = "/form">
+                        <button>add post</button>
+                        
+            </Link>
             <div>
-                <form onSubmit={onFormSubmit}>
-                    <h1>Feed</h1>
-                    <input type="file" name="image" onChange={onInputChange}/>
-                    <button type='submit'>upload</button>
-                </form>
+                {data && data.map((val)=> 
+                <div key={val._id}>
+                   <div> <img alt = "image" src={val?.image }/> </div>
+                   <div> {val?.text} </div>
+                </div>) }
             </div>
-        );
+            
+            
+        </div>
+    )
+
     
-
-
 
 }
 export default Feed;

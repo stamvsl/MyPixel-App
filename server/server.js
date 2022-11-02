@@ -3,6 +3,7 @@ const app = express();
 import connection from "./connection.js";
 import userRouter from "./routes/user.js"
 import postRouter from "./routes/post.js"
+import getRouter from "./routes/get.js"
 //import multer, { diskStorage } from "multer"
 import bodyParser from 'body-parser'
 //import path from "path"
@@ -25,60 +26,9 @@ app.get('/', (req, res) => {
 
 app.use("/users", userRouter)
 app.use("/posts", postRouter)
+app.use("/", getRouter)
 
 
 
 
 
-
-
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, '/images')
-//   },
-//   filename: function (req, file, cb) {
-//     const uniqueSuffix = Date.now() + path.extname(file.originalname)
-//     cb(null, file.fieldname + '-' + uniqueSuffix)
-//   }
-// })
-
-// var upload = multer({
-//   storage: storage,
-//   fileFilter: (req, file, cb) => {
-//       if (file.mimetype === "image/png" || file.mimetype === "image/jpg" || file.mimetype === "image/jpeg") {
-//           cb(null, true);
-//       } else {
-//           cb(null, false);
-//           return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
-//       }
-//   }
-// })
-
-// app.post('/img', upload.single('image'), function (req, res, next) {
-//   console.log("hello")
-// console.log(req.file); 
-// const url = req.protocol + '://' + req.get('host')
-// console.log(url)
-// })
-
-
-// import multer from "multer";
-// var upload = multer({dest:'images/'});
-// var storage = multer.diskStorage({
-//     destination: function(req, file, cb) {
-//         cb(null, './images');
-//      },
-//     filename: function (req, file, cb) {
-//         cb(null , file.originalname);
-//     }
-// });
-// var upload = multer({ storage: storage })
-
-// app.post('/posts/new', upload.single('image'), (req, res, error) => {
-//     try {
-//       console.log(req.file);
-//       res.send(req.file);
-//     }catch(err) {
-//       res.send(400);
-//     }
-//   });

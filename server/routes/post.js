@@ -76,13 +76,13 @@ var upload = multer({ storage: storage,
 })
 
 router.post('/new', upload.single('image'),async (req, res, error) => {
+    const url = req.protocol + '://' + req.get('host')
   const post = new Posts({
-           
-            image: req.file.filename,
+           image: url + '/images/' + req.file.filename,
             text: req.body.text
         })
         console.log(post);
-        //console.log(image);
+       
         try{
             const newPost = await post.save()
             res.json(newPost)

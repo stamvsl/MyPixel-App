@@ -9,7 +9,11 @@ const Schema = new mongoose.Schema({
         
     }
     
-});
+},
+{
+    timestamps: true
+}
+);
 
 Schema.methods.toJSON = function () {
     const result = this.toObject();
