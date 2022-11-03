@@ -1,6 +1,7 @@
 import Feed from './components/feed';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Form from "./components/form"
+import Header from './components/header';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Feed />} />
         <Route path="/form" element={<Form />} />
+        <Route path="/header" element={<Header />} />
        
       </Routes>
     </BrowserRouter>

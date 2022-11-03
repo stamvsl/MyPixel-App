@@ -41,6 +41,7 @@ const Form = () => {
             <div>
                 
                 <form onSubmit={onFormSubmit}>
+                    
                     <h1>Form</h1>
                     <input type="file" name="image" onChange={onInputChange}/>
                     <input type="text" name="text" onChange={onInputChange}/>

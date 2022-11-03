@@ -1,0 +1,15 @@
+.container{
+    margin: 0;
+    display: grid;
+    width: 100vw;
+    background-color: #26232c;
+    justify-content: center;
+}
+
+.feed{
+    background-color: #403945;
+    width: 800px;
+    height: 100%;
+    text-align: center;
+    
+}
