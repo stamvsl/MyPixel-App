@@ -1,9 +1,9 @@
 import "./header.css"
 const Footer = ()=>{
 return(
-    <div className="footer">
+    <footer className="footer">
        <p>Do not contact</p>
-    </div>
+    </footer>
 )
 }
 export default Footer

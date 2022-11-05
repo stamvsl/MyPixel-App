@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useParams } from 'react';
 import axios from 'axios';
 import {Link} from "react-router-dom"
 import Form from "./form"
@@ -7,6 +7,8 @@ import Footer from './footer';
 import "./feed.css"
 
 const Feed = () => {
+
+// const {id} = useParams
     
 const [data, setData] = useState(null)
 useEffect(() => {
@@ -20,22 +22,25 @@ useEffect(() => {
   },[]);
 
 
+  const removePost = (id) =>{
+    axios.delete(`http://localhost:3001/posts/delete/${id}`)
+        // .then(res =>{
+        //     console.log(res.data);
+        // })
+        // .catch(err =>{
+        //     console.log(err)
+        // })
+  }
 
+   
 
-    // const removePost= (id) =>{
+// const removePost= async(id) =>{
+//     const response =await axios.delete(`http://localhost:3001/posts/delete/${id}`)
+//     if(response.data.data){
+//         setData(response.data.data)
+//     }
+// } 
 
-    //     axios.delete('https//localhost:3001/posts/${id}')
-    //     setData(
-    //     data.filter((post)=>{
-    //         return post.id !== id;
-    //     })
-    // ) } 
-
-
- 
-  
-    
-  
 
 
     return(
@@ -43,17 +48,23 @@ useEffect(() => {
             <Header />
             <div className='container'>
                 <div className='feed'>
-                    <h1>Feed</h1>
-                    <Link to = "/form">
-                                <button>add post</button>
+                    <div className='feedTop'>
+                        
+                        <img src='../images/usam.png' />
+                        <h2>WE WANT YOUR ART</h2>
+                        <Link to = "/form">
+                                <button>Post here</button>
                     </Link>
+                       
+                    </div>
+                   
                     <br /><br /><br />
                         <div>
                             {data && data.map((val)=> 
-                            <div key={val._id}>
+                            <div key={val._id} className = "post">
                                 <div> {val?.text} </div>
-                                <div> <img alt = "image" src={val?.image }/> </div>
-                                {/* <button onClick={removePost(val.id)}> Remove this post</button> */}
+                                <div> <img src={val?.image }/> </div>
+                                <button onClick={()=>removePost(val._id)}> Remove this post</button>
                             </div>) }
                         </div>
                 </div>

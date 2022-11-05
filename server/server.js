@@ -4,6 +4,7 @@ import connection from "./connection.js";
 import userRouter from "./routes/user.js"
 import postRouter from "./routes/post.js"
 import getRouter from "./routes/get.js"
+
 //import multer, { diskStorage } from "multer"
 import bodyParser from 'body-parser'
 //import path from "path"
@@ -27,6 +28,7 @@ app.get('/', (req, res) => {
 app.use("/users", userRouter)
 app.use("/posts", postRouter)
 app.use("/", getRouter)
+
 
 
 

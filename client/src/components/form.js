@@ -28,12 +28,14 @@ const Form = () => {
                 "Content-Type": "multipart/form-data"
             }
         }
-        axios.post("http://localhost:3001/posts/new", formData, config).then((res)=>{
-            console.log("Success", res);
-           
-        }).catch((err)=>{
-            console.log("err", err)
-        })
+        axios.post("http://localhost:3001/posts/new", formData, config)
+            .then((res)=>{
+                console.log("Success", res);
+            
+            }).catch((err)=>{
+                console.log("err", err)
+            })
+            
         window.location.replace('http://localhost:3000');
     }
     

@@ -2,6 +2,7 @@
     margin: 0;
     display: grid;
     width: 100vw;
+    
     background-color: #26232c;
     justify-content: center;
 }
@@ -12,4 +13,38 @@
     height: 100%;
     text-align: center;
     
+}
+
+.post{
+    margin: 50px;
+}
+
+.feed img{
+   
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 384px;
+        height: 384px;
+   }
+
+.feedTop{
+    margin-top: 0px;
+    
+    margin-bottom: 150px;
+    text-align: center;
+    justify-content: center;
+    /* background-image: url("../images/usam.png");
+    background-repeat: no-repeat; */
+    
+    height: 144px;
+   
+    /* background-color:rgb(10, 10, 10); */
+}
+
+.feedTop img{
+    height: 192px;
+    width: 192px;
+    border: 0;
+   
+   
 }

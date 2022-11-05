@@ -91,12 +91,16 @@ router.post('/new', upload.single('image'),async (req, res, error) => {
         }
     })
   
-
-router.delete("/:id", (req, res)=>{
-
-})
-
-
+    router.delete("/delete/:id", function(req, res){
+        const id = req.params.id;
+        Posts.findByIdAndDelete(id)
+        // .then(result => {
+        //     res.json({redirect: "/posts"})
+        // })
+        .catch(err =>{
+            console.log(err)
+        })
+    })
 
 
 export default router
