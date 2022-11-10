@@ -40,17 +40,19 @@ const Form = () => {
     }
     
         return(
-            <div>
+            <div className='formWrapper'> 
+            <div className='form'>
                 
                 <form onSubmit={onFormSubmit}>
                     
-                    <h1>Form</h1>
+                    <h1>Post your art here (Suggested 480x480px)</h1>
                     <input type="file" name="image" onChange={onInputChange}/>
                     <input type="text" name="text" onChange={onInputChange}/>
                     
                     <button type='submit'>upload</button>
                      
                 </form>
+            </div>
             </div>
         );
 }

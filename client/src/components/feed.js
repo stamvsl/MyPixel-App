@@ -24,12 +24,13 @@ useEffect(() => {
 
   const removePost = (id) =>{
     axios.delete(`http://localhost:3001/posts/delete/${id}`)
-        // .then(res =>{
-        //     console.log(res.data);
-        // })
-        // .catch(err =>{
-        //     console.log(err)
-        // })
+    .then((res)=>{
+        console.log("Success", res);
+    
+    }).catch((err)=>{
+        console.log("err", err)
+    })
+    window.location.replace('http://localhost:3000');
   }
 
    

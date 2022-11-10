@@ -1,22 +1,30 @@
 .container{
     margin: 0;
+    margin-bottom: -15px;
     display: grid;
     width: 100vw;
-    
-    background-color: #26232c;
+    height: 100%;
+    /* background-color: #26232c; */
+    background-color: #6a7786;
     justify-content: center;
 }
 
 .feed{
-    background-color: #403945;
+   
+    /* background-color: #403945; */
+    background-color: #909dac;
     width: 800px;
-    height: 100%;
+    min-height: 100vh;
     text-align: center;
+    
     
 }
 
 .post{
     margin: 50px;
+    font-size: 30px;
+    /* inline-size: 150px; */
+    overflow-wrap: break-word;
 }
 
 .feed img{
@@ -46,5 +54,22 @@
     width: 192px;
     border: 0;
    
-   
+}
+
+.formWrapper{
+    display: grid;
+    background-color: #6a7786;
+    height: 100vh;
+    width: 100vw;
+    
+}
+
+
+.form{
+    
+    justify-content: center;
+    text-align: center;
+    top: 40%;
+    left: 32%;
+    position: absolute;
 }
