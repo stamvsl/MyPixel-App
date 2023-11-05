@@ -1,4 +1,5 @@
 import express from "express";
+
 const app = express();
 import connection from "./connection.js";
 import userRouter from "./routes/user.js";
@@ -16,7 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 app.listen(process.env.PORT || 3001, () => {
-  console.log("Server is running on port ${PORT}");
+  console.log(`Server is running on port 3001`);
 });
 
 app.get("/", (req, res) => {
