@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import Posts from "../models/Posts.js/";
+import Posts from "../models/Posts";
 import multer, { diskStorage } from "multer";
 import path, { resolve } from "path";
 
@@ -49,8 +49,7 @@ router.post("/new", upload.single("image"), async (req, res, error) => {
 
 router.delete("/delete/:id", function (req, res) {
   const id = req.params.id;
-  Posts.findByIdAndDelete(id)
-  .catch((err) => {
+  Posts.findByIdAndDelete(id).catch((err) => {
     console.log(err);
   });
 });
