@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import Posts from "../models/Posts";
+import Posts from "../models/Posts.js";
 import multer, { diskStorage } from "multer";
 import path, { resolve } from "path";
 
