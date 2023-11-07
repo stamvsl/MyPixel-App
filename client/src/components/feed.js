@@ -31,15 +31,15 @@ const Feed = () => {
       .delete(`${path}/posts/delete/${id}`)
       .then((res) => {
         console.log("Success", res);
+        const window_path =
+          process.env.NODE_ENV === "development"
+            ? "http://localhost:3000"
+            : process.env.REACT_APP_BASE_PATH;
+        window.location.replace(window_path);
       })
       .catch((err) => {
         console.log("err", err);
       });
-    const window_path =
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:3000"
-        : process.env.REACT_APP_BASE_PATH;
-    window.location.replace(window_path);
   };
 
   return (
