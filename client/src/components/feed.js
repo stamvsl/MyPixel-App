@@ -7,8 +7,6 @@ import Footer from "./footer";
 import "./feed.css";
 
 const Feed = () => {
-  console.log(process.env.NODE_ENV);
-  // const {id} = useParams
   const path =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3001"
@@ -19,18 +17,15 @@ const Feed = () => {
       .get(`${path}/allPosts`)
       .then((res) => res.data)
       .then((posts) => {
-        console.log("posts: ", posts);
         setData(posts);
       })
       .catch((e) => console.log("error", e));
   }, []);
 
   const removePost = (id) => {
-    console.log("path ", path);
     axios
       .delete(`${path}/posts/delete/${id}`)
       .then((res) => {
-        console.log("Success", res);
         const window_path =
           process.env.NODE_ENV === "development"
             ? "http://localhost:3000"
@@ -41,7 +36,6 @@ const Feed = () => {
             .get(`${path}/allPosts`)
             .then((res) => res.data)
             .then((posts) => {
-              console.log("posts: ", posts);
               setData(posts);
             })
             .catch((e) => console.log("error", e));

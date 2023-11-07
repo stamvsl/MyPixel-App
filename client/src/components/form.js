@@ -8,7 +8,6 @@ const Form = () => {
   const [text, setText] = useState("");
 
   const onInputChange = (e) => {
-    console.log("e.target: ", e.target.files);
     if (e.target?.files?.length > 0) {
       setImage(e.target.files[0]);
     }
