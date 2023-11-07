@@ -35,7 +35,17 @@ const Feed = () => {
           process.env.NODE_ENV === "development"
             ? "http://localhost:3000"
             : process.env.REACT_APP_BASE_PATH;
-        window.location.replace(window_path);
+        // window.location.replace(window_path);
+        if (res.status === 200) {
+          axios
+            .get(`${path}/allPosts`)
+            .then((res) => res.data)
+            .then((posts) => {
+              console.log("posts: ", posts);
+              setData(posts);
+            })
+            .catch((e) => console.log("error", e));
+        }
       })
       .catch((err) => {
         console.log("err", err);
