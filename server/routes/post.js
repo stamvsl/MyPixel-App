@@ -47,11 +47,15 @@ router.post("/new", upload.single("image"), async (req, res, error) => {
   }
 });
 
-router.delete("/delete/:id", function (req, res) {
-  const id = req.params.id;
-  Posts.findByIdAndDelete(id).catch((err) => {
-    console.log(err);
-  });
+router.delete("/delete/:id", async function (req, res) {
+  try {
+    const id = req.params.id;
+    const posts = await Posts.findByIdAndDelete(id);
+    if (!posts) return res.sendStatus(404);
+    return res.send(posts);
+  } catch (e) {
+    return res.sendStatus(400);
+  }
 });
 
 export default router;
