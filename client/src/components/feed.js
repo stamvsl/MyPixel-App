@@ -48,7 +48,7 @@ const Feed = () => {
       <div className="container">
         <div className="feed">
           <div className="feedTop">
-            <img src="../images/usam.png" />
+            <img src="./usam.png" />
             <h2>WE WANT YOUR ART</h2>
             <Link to="/form">
               <button>Post here</button>
