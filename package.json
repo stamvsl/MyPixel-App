@@ -1,0 +1,13 @@
+{
+  "name": "MyPixel-App",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n SERVER,CLIENT -c red,green \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm start",
+    "client": "cd client && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
